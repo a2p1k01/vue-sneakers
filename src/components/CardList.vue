@@ -20,7 +20,9 @@
       :image-url="item.imageUrl" 
       :price="item.price"
       :on-click-favorite="() => emit('addToFavorite', item)"
+      :on-click-add="() => emit('addToCart', item)"
       :is-favorite="item.isFavorite"
+      :is-added="item.isAdded"
     />
   </div>
 </template>

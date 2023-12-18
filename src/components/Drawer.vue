@@ -2,6 +2,11 @@
 <script setup>
   import DrawerHead from './DrawerHead.vue';
   import CartListItem from './CartListItem.vue';
+
+  defineProps({
+    cartPrice: Number
+  })
+
 </script>
 
 <template>
@@ -15,12 +20,12 @@
       <div class="flex gap-2">
         <span>Итого: </span>
         <div class="flex-1 border-b"></div>
-        <b>12900 руб.</b>
+        <b>{{ cartPrice }} руб.</b>
       </div>
       <div class="flex gap-2">
         <span>Доставка 5%: </span>
         <div class="flex-1 border-b"></div>
-        <b>900 руб.</b>
+        <b>{{ Math.round(cartPrice * 0.05) }} руб.</b>
       </div>
       <button class="mt-4 bg-green-500 cursor-pointer disabled:bg-slate-400 w-full active:bg-green-700 rounded-2xl py-2 text-white transition hover:bg-green-600">
         Оформить заказ

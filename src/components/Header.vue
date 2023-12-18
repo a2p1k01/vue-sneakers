@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 defineProps({
-  cost: Number,
+  cartPrice: Number,
 })
 
 const emit = defineEmits('openDrawer')
@@ -21,7 +21,7 @@ const emit = defineEmits('openDrawer')
       <ul class="flex items-center gap-10">
         <li @click="() => emit('openDrawer')" class="flex items-center cursor-pointer gap-2 text-gray-700 hover:text-black">
           <img src="/cart.svg" alt="cart">
-          <b>{{ cost }} руб.</b>
+          <b>{{ cartPrice }} руб.</b>
         </li>
         <li class="flex items-center cursor-pointer gap-2 text-gray-500 hover:text-black">
           <img src="/heart.svg" alt="cart">
