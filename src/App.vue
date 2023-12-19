@@ -13,8 +13,22 @@ const cartPrice = computed(() =>
 );
 
 const cart = ref([]);
-
+const isCreatedOrder = ref(false);
 const drawerOpen = ref(false);
+
+const createOrder = async () => {
+  try {
+    isCreatedOrder.value = true;
+    const { data } = await axios.post(`https://48a80f272ea1efcb.mokky.dev/orders`, {
+      items: cart.value,
+      cartPrice: cartPrice.value,
+    })
+    cart.value = [];
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 const addToCart = (item) => {
   cart.value.push(item);
@@ -148,7 +162,12 @@ provide("cartActions", {
 </script>
 
 <template>
-  <Drawer v-if="drawerOpen" :cart-price="cartPrice"/>
+  <Drawer
+      v-if="drawerOpen"
+      :cart-price="cartPrice"
+      @create-order="createOrder"
+      :is-created-order="isCreatedOrder"
+  />
   <div class="mt-14 bg-white w-4/5 m-auto rounded-xl shadow-2xl">
     <Header :cost="0" @open-drawer="openDrawer" :cart-price="cartPrice" />
     <div class="p-10">

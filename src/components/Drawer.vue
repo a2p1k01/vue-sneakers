@@ -2,10 +2,14 @@
 <script setup>
   import DrawerHead from './DrawerHead.vue';
   import CartListItem from './CartListItem.vue';
+  import {computed} from "vue";
 
   defineProps({
-    cartPrice: Number
+    cartPrice: Number,
+    isCreatedOrder: Boolean
   })
+
+  const emit = defineEmits(['createOrder'])
 
 </script>
 
@@ -27,7 +31,7 @@
         <div class="flex-1 border-b"></div>
         <b>{{ Math.round(cartPrice * 0.05) }} руб.</b>
       </div>
-      <button class="mt-4 bg-green-500 cursor-pointer disabled:bg-slate-400 w-full active:bg-green-700 rounded-2xl py-2 text-white transition hover:bg-green-600">
+      <button @click="emit('createOrder')" :disabled="!isCreatedOrder && !cartPrice" class="mt-4 bg-green-500 cursor-pointer disabled:bg-slate-400 w-full active:bg-green-700 rounded-2xl py-2 text-white transition hover:bg-green-600">
         Оформить заказ
       </button>
     </div>

@@ -8,6 +8,7 @@ defineProps({
   price: Number,
   isFavorite: Boolean,
   isAdded: Boolean,
+  isCreatedOrder: Boolean,
   onClickFavorite: Function,
   onClickAdd: Function
 })
