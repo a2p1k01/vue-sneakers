@@ -86,14 +86,13 @@ const fetchItems = async () => {
     };
 
     if (filters.searchQuery) {
-      params.title = `*${filters.searchQuery}*`;
+      params.title = `${filters.searchQuery}`;
     }
 
     const { data } = await axios.get(
-        `https://48a80f272ea1efcb.mokky.dev/items`,
+        `http://127.0.0.1:8000/items`,
         { params }
     );
-
     items.value = data.map((obj) => ({
       ...obj,
       isFavorite: false,
