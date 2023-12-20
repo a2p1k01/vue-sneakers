@@ -5,14 +5,10 @@ import CartItem from './CartItem.vue'
 
 const { cart, removeFromCart } = inject('cartActions')
 
-const onClickRemove = () => {
-  addToCart(item);
-}
-
 </script>
 
 <template>
-  <div class="flex flex-col gap-5">
+  <div class="flex flex-col gap-5" v-auto-animate>
     <CartItem
       v-for="item in cart"
       v-bind:key="item.id"
