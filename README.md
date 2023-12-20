@@ -1,5 +1,7 @@
 # vue-sneakers
 
+### frontend to [sneakers-api](https://github.com/a2p1k01/sneakers-api)
+
 ![изображение](https://github.com/a2p1k01/vue-sneakers/assets/152768619/01892fff-c18b-484f-8fa1-82f41edf2cec)
 
 
