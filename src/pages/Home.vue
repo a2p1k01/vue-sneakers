@@ -90,9 +90,15 @@ const fetchItems = async () => {
     }
 
     const { data } = await axios.get(
-        `http://127.0.0.1:8000/items`,
+        `https://48a80f272ea1efcb.mokky.dev/items`,
         { params }
     );
+    
+    // const { data } = await axios.get(
+    //     `http://127.0.0.1:8000/items`,
+    //     { params }
+    // );
+    
     items.value = data.map((obj) => ({
       ...obj,
       isFavorite: false,
